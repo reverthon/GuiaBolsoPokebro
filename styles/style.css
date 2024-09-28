@@ -438,6 +438,12 @@ main {
         padding: 1rem;
         margin: 0 auto; /* Centraliza a seção */
     }
+
+        .cardslide {
+        --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
+        width: 350px;
+        height: 250px;
+}
 }
 
 
