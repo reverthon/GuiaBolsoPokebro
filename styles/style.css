@@ -69,8 +69,9 @@ main {
 .logo {
     display: block; /* Garante que a logo seja um bloco */
     margin: 0 auto; /* Centraliza a logo horizontalmente */
-    width: 200px; /* Ajuste o tamanho conforme necessário */
+    width: 150px; /* Ajuste o tamanho conforme necessário */
     height: auto; /* Mantém a proporção da imagem */
+    padding: 1rem;
 }
 
 .cabecalho {
@@ -200,8 +201,8 @@ main {
 /* Slider */
 .cardslide {
     --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
-    width: 700px;
-    height: 500px;
+    width: 650px;
+    height: 450px;
     padding: 5px;
     border-radius: 1rem;
     overflow: visible;
@@ -403,9 +404,40 @@ main {
 }
 
 @media (max-width: 700px) {
-    .apresentacao__conteudo__titulo,
-    .apresentacao__conteudo__texto {
-        text-align: center; /* Centraliza o texto */
-        margin: 0 auto; /* Garante que o texto fique no centro */
+    body, html {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Evita qualquer rolagem horizontal */
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os elementos verticalmente */
+        justify-content: center;
+        width: 100%; /* Garante que o main ocupe toda a largura */
+        padding: 1rem; /* Adiciona um espaçamento interno */
+        box-sizing: border-box; /* Inclui padding e border no tamanho do elemento */
+    }
+
+    /* Evitar que o rodapé diminua em largura */
+    .rodape {
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box; /* Inclui padding no tamanho total */
+        margin: 0 auto;
+    }
+
+    /* Certifique-se de que outras seções também fiquem centralizadas */
+    .sessaoapresentacao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Garante que a seção ocupe a largura total */
+        padding: 1rem;
+        margin: 0 auto; /* Centraliza a seção */
     }
 }
+
+
