@@ -1,0 +1,411 @@
+/*
+===============================================
+    Importação de fontes externas
+===============================================
+*/
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+/*
+===============================================
+    Variáveis Globais (Cores e Fontes)
+===============================================
+*/
+:root {
+    --cor-primaria: #000000;
+    --cor-secundaria: #ffffff;
+    --cor-terciaria: #ffffff;
+    --cor-hover: #f4f5f8;
+    --cor-btmenu: #121418;
+    --cor-menurodape: rgba(0, 0, 0, 0.5);
+    --cor-hover-menu: rgba(250, 250, 246, 0.192);
+
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+
+    /* Variáveis para tamanhos de fonte */
+    --fonte-titulo-principal: 1.75rem; /* Título principal */
+    --fonte-titulo-secundario: 1.5rem; /* Título secundário */
+    --fonte-texto: 1rem; /* Texto normal */
+    --fonte-menu: 1.5rem; /* Tamanho da fonte do menu */
+    --fonte-rodape: 1rem; /* Tamanho da fonte do rodapé */
+    --fonte-texto-reduzido: 0.5rem;
+}
+
+/*
+===============================================
+    Reset de estilos globais
+===============================================
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/*
+===============================================
+    Estilos para o body (corpo da página)
+===============================================
+*/
+body {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-secundaria);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove padding padrão */
+}
+
+main {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+}
+
+.logo {
+    display: block; /* Garante que a logo seja um bloco */
+    margin: 0 auto; /* Centraliza a logo horizontalmente */
+    width: 200px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.cabecalho {
+    padding: 10rem 0; /* Apenas padding vertical, para evitar altura fixa */
+    box-sizing: border-box;
+    text-align: center; /* Centraliza o conteúdo do cabeçalho */
+}
+
+.cabecalho__menu {
+    display: flex;
+    gap: 2rem;
+    justify-content: center; /* Garante que os itens do menu estejam centralizados */
+}
+
+.cabecalho__menu__link {
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-primaria);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cabecalho__menu__link:hover {
+    background-color: var(--cor-hover-menu);
+    color: var(--cor-terciaria); /* Muda a cor do texto ao passar o mouse */
+    transition: background-color 0.3s, color 0.3s; /* Transição suave para a cor do texto */
+}
+
+.cabecalho__menu__link.hover, .cabecalho__menu__link.active {
+    background-color: var(--cor-hover-menu); /* Cor de fundo ao passar o mouse ou estar ativo */
+    color: var(--cor-terciaria); /* Cor do texto ao passar o mouse ou estar ativo */
+}
+
+/* Cards */
+.card {
+    --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+    border-radius: 1rem;
+    overflow: visible;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+}
+
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    z-index: -1;
+}
+
+.card::before {
+    background: linear-gradient(to bottom right, #f6d365 0%, #fda085 100%);
+    transform: rotate(2deg);
+}
+
+.card::after {
+    background: linear-gradient(to top right, #84fab0 0%, #8fd3f4 100%);
+    transform: rotate(-2deg);
+}
+
+.card-info {
+    --color: #d43c0c;
+    background: var(--color);
+    color: #ffffff; /* Cor do texto */
+    display: flex;
+    flex-direction: column; /* Adicionado para alinhar a imagem e o texto verticalmente */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    border-radius: .7rem;
+    text-align: center; /* Centralizar o texto */
+}
+
+.card .title {
+    font-weight: bold;
+    letter-spacing: .1em;
+}
+
+.card:hover::before,
+.card:hover::after {
+    opacity: 0;
+}
+
+.card:hover .card-info {
+    color: rgb(255, 255, 255);
+    transition: color 1s;
+}
+
+.card-image {
+    max-width: 100%;
+    max-height: 70%; /* Ajuste conforme necessário */
+    border-radius: .5rem; /* Opcional: para arredondar os cantos da imagem */
+    margin-bottom: 10px; /* Espaço entre a imagem e o texto */
+    padding: 0.5rem;
+}
+
+.card:hover {
+    transform: scale(1.01); /* Aumenta um pouco o tamanho do card */
+    transition: transform 0.3s ease-in-out; /* Efeito de transição suave */
+}
+
+/* Seção de Cards */
+.sessao1 {
+    width: 100%; /* Permite que a seção ocupe toda a largura disponível */
+    max-width: 1000px; /* Define uma largura máxima, se necessário */
+    margin: 0 auto; /* Centraliza a seção na página */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center; /* Alinha o conteúdo no centro */
+    gap: 20px;
+}
+
+/* Slider */
+.cardslide {
+    --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
+    width: 700px;
+    height: 500px;
+    padding: 5px;
+    border-radius: 1rem;
+    overflow: visible;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+}
+
+.slider {
+    position: relative; /* Mantém o posicionamento relativo dentro do card */
+    width: 99%; /* Ocupar 90% da largura do card */
+    height: 99%; /* Ocupar 90% da altura do card */
+    margin: auto; /* Centraliza o slider horizontalmente dentro do card */
+    top: 0.5%; /* Ajuste a posição verticalmente se necessário */
+    border-radius: 1rem; /* Define bordas arredondadas (ajuste o valor conforme necessário) */
+    overflow: hidden; /* Garante que o conteúdo que excede a borda arredondada seja cortado */
+}
+
+.slider-image {
+    width: 100%; /* As imagens ocuparão toda a largura do slider */
+    height: 100%; /* As imagens ocuparão toda a altura do slider */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+    position: absolute; /* Permite sobrepor as imagens */
+    top: 0;
+    left: 0;
+}
+
+.apresentacao__conteudo__titulo {
+    font-size: var(--fonte-titulo-principal);
+    font-family: var(--fonte-primaria);
+    color: var(--cor-secundaria);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.apresentacao__conteudo__texto {
+    font-size: var(--fonte-texto);
+    font-family: var(--fonte-secundaria);
+    margin-bottom: 2rem;
+    text-align: left;
+    color: var(--cor-secundaria);
+}
+
+.rodape {
+    /* margin-top: 0.1rem; Espaçamento acima do rodapé */
+    color: var(--cor-secundaria);
+    background-color: var(--cor-hover-menu);
+    padding: 1.5rem;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+    font-size: var(--fonte-rodape);
+    font-weight: 400;
+}
+
+/* Seção de apresentação */
+.sessaoapresentacao {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    align-content: center;
+}
+
+.sessaoapresentacao {
+    margin-bottom: 6rem; /* Define um espaço abaixo da seção de apresentação */
+}
+
+/* Ajustes para o carregando */
+.carregando {
+    display: flex; /* Usar Flexbox para facilitar a centralização */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    /* height: 100vh; Faz com que o contêiner ocupe a altura total da viewport */
+}
+
+.carregando img {
+    max-width: 60%; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.emconstrucao {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-family: var(--fonte-texto);
+    font-size: var(--fonte-texto);
+ 
+}
+
+.emconstrucao h1 {
+    margin-bottom: 60px; /* Ajuste o valor conforme necessário */
+}
+
+.social-card-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5rem;
+
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+.social-card {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.068);
+    padding: 20px 25px;
+    border-radius: 14px;
+    
+  }
+  .Btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .svgContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    letter-spacing: 0.8px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    border: 1px solid rgba(156, 156, 156, 0.466);
+    z-index: 2;
+  }
+  
+  .BG {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #181818;
+    z-index: 1;
+    border-radius: 10px;
+    pointer-events: none;
+    transition: all 0.3s;
+    font-size: 0px;
+  }
+  .github .BG {
+    background: #181818;
+  }
+  .linkdin .BG {
+    background: #0077b5;
+  }
+  .whatsapp .BG {
+    background: #075e54;
+  }
+  .discord .BG {
+    background: #7289da;
+  }
+  .Btn:hover .BG {
+    transform: scale(1.5);
+    /* transform-origin: bottom; */
+    font-size: 20px;
+    color: white;
+  }
+  
+  .Btn:hover .svgContainer {
+    border: 1px solid rgba(216, 216, 216, 0.466);
+    background-color: rgba(209, 209, 209, 0.466);
+    backdrop-filter: blur(4px);
+  }
+  
+
+
+
+/*
+===============================================
+    Media Queries para telas menores que 1200px
+===============================================
+*/
+
+@media (max-width: 1200px) {
+    .cabecalho__menu {
+        flex-direction: column; /* Altera a direção do menu para coluna */
+        align-items: center; /* Centraliza os itens do menu verticalmente */
+        /* padding: 0.5rem 0; Adiciona um pouco de espaçamento vertical */
+    }
+
+    .cabecalho__menu__link {
+        margin-bottom: 0.1rem; /* Adiciona espaço entre os itens do menu */
+    }
+}
+
+@media (max-width: 700px) {
+    .apresentacao__conteudo__titulo,
+    .apresentacao__conteudo__texto {
+        text-align: center; /* Centraliza o texto */
+        margin: 0 auto; /* Garante que o texto fique no centro */
+    }
+}
