@@ -16,7 +16,7 @@
     --cor-terciaria: #ffffff;
     --cor-hover: #f4f5f8;
     --cor-btmenu: #121418;
-    --cor-menurodape: rgba(0, 0, 0, 0.5);
+    --cor-menurodape: rgba(255, 255, 255, 0.027);
     --cor-hover-menu: rgba(250, 250, 246, 0.192);
 
     --fonte-primaria: 'Krona One', sans-serif;
@@ -52,38 +52,56 @@ a {
 ===============================================
 */
 body {
+    position: relative; /* Necessário para o pseudo-elemento */
+    background-image: url('../assets/fundo3.png');
     background-color: var(--cor-primaria);
+    background-size: cover;
+    background-position: center;
     color: var(--cor-secundaria);
     font-family: var(--fonte-secundaria);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0; /* Remove margens padrão */
-    padding: 0; /* Remove padding padrão */
+    margin: 0;
+    padding: 0;
 }
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.945); /* Preto com 50% de opacidade */
+    z-index: -1; /* Coloca atrás do conteúdo */
+}
 main {
     flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
 }
 
+
 .logo {
-    display: block; /* Garante que a logo seja um bloco */
-    margin: 0 auto; /* Centraliza a logo horizontalmente */
-    width: 150px; /* Ajuste o tamanho conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
-    padding: 1rem;
+    display: block;
+    position: absolute; /* Remove do fluxo do documento */
+    top: 30px; /* Ajuste a distância do topo conforme necessário */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    width: 150px; /* Ajuste conforme necessário */
 }
 
 .cabecalho {
     padding: 10rem 0; /* Apenas padding vertical, para evitar altura fixa */
     box-sizing: border-box;
     text-align: center; /* Centraliza o conteúdo do cabeçalho */
+
 }
 
 .cabecalho__menu {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: center; /* Garante que os itens do menu estejam centralizados */
+    background-color: var(--cor-menurodape);
+    padding: 1rem;
+   
 }
 
 .cabecalho__menu__link {
@@ -198,6 +216,13 @@ main {
     gap: 20px;
 }
 
+.shiny {
+    background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* Slider */
 .cardslide {
     --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
@@ -209,6 +234,29 @@ main {
     background: var(--background);
     position: relative;
     z-index: 1;
+}
+
+/* Cardboss */
+.cardboss {
+    --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
+    width: 1000px;
+    height: 450px;
+    padding: 1px;
+    border-radius: 1rem;
+    overflow: visible;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+}
+
+.cardboses {
+    position: relative; /* Mantém o posicionamento relativo dentro do card */
+    width: 99%; /* Ocupar 90% da largura do card */
+    height: 100%; /* Ocupar 90% da altura do card */
+    margin: auto; /* Centraliza o slider horizontalmente dentro do card */
+    top: 0.5%; /* Ajuste a posição verticalmente se necessário */
+    border-radius: 1rem; /* Define bordas arredondadas (ajuste o valor conforme necessário) */
+    overflow: hidden; /* Garante que o conteúdo que excede a borda arredondada seja cortado */
 }
 
 .slider {
@@ -223,7 +271,7 @@ main {
 
 .slider-image {
     width: 100%; /* As imagens ocuparão toda a largura do slider */
-    height: 100%; /* As imagens ocuparão toda a altura do slider */
+    height: 99%; /* As imagens ocuparão toda a altura do slider */
     object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
     position: absolute; /* Permite sobrepor as imagens */
     top: 0;
@@ -247,7 +295,6 @@ main {
 }
 
 .rodape {
-    /* margin-top: 0.1rem; Espaçamento acima do rodapé */
     color: var(--cor-secundaria);
     background-color: var(--cor-hover-menu);
     padding: 1.5rem;
@@ -255,6 +302,7 @@ main {
     font-family: var(--fonte-secundaria);
     font-size: var(--fonte-rodape);
     font-weight: 400;
+    margin-top: 10rem; /* Adiciona um espaçamento de 2rem acima do rodapé */
 }
 
 /* Seção de apresentação */
@@ -272,17 +320,18 @@ main {
     margin-bottom: 6rem; /* Define um espaço abaixo da seção de apresentação */
 }
 
-/* Ajustes para o carregando */
 .carregando {
-    display: flex; /* Usar Flexbox para facilitar a centralização */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    /* height: 100vh; Faz com que o contêiner ocupe a altura total da viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30dvh; /* Ocupar a altura total da tela */
+    position: relative; /* Garante que o carregando seja posicionado corretamente */
+    z-index: 1; /* Certifica-se de que o carregando fique acima de outros elementos */
 }
 
 .carregando img {
-    max-width: 60%; /* Ajuste o tamanho da imagem conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
+    max-width: 60%;
+    height: auto;
 }
 
 .emconstrucao {
@@ -304,7 +353,7 @@ main {
 
 }
 
-/* From Uiverse.io by vinodjangid07 */ 
+/* REDES SOCIAIS */ 
 .social-card {
     height: fit-content;
     width: fit-content;
@@ -382,6 +431,44 @@ main {
     backdrop-filter: blur(4px);
   }
   
+  /* ABA BOSS */ 
+
+/* From Uiverse.io by absoluteSTrange */ 
+button {
+    padding: 17px 40px;
+    border-radius: 10px;
+    border: 0;
+    background-color: rgb(236, 221, 4);
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: rgb(16, 43, 124) 0px 10px 0px 0px;
+    color: hsl(246, 100%, 23%);
+    cursor: pointer;
+  }
+  
+  button:hover {
+    box-shadow: rgb(53, 53, 99) 0px 7px 0px 0px;
+  }
+  
+  button:active {
+    background-color: rgb(241, 238, 7);
+    /*50, 168, 80*/
+    box-shadow: rgb(193, 224, 228) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 200ms;
+  }
+
+  .boss-tabs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    gap:2rem;
+  }
 
 
 
