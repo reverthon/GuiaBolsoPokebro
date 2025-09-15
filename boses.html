@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokebro</title>
-    <meta name="description" content="Portfólio de Reverthon Santos, especialista em automação de processos e RPA. Explore meus projetos e entre em contato.">
+    <title>Pokebro - Bosses</title>
+    <meta name="description" content="Guia de bosses do Pokebro - requisitos, mapas e estratégias.">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
 
+    <!-- Logo -->
     <img src="assets/background.png" alt="Logo" class="logo">
-
 
     <!-- Cabeçalho -->
     <header class="cabecalho">
+        <button class="menu-toggle" aria-label="Abrir menu">☰</button>
         <div class="cabecalho__container"></div>
         <nav class="cabecalho__menu">
             <a class="cabecalho__menu__link" href="index.html">Home</a>
@@ -24,101 +25,92 @@
             <a class="cabecalho__menu__link" href="questbox.html">Quest's Box</a>
             <a class="cabecalho__menu__link" href="boses.html">Boss's</a>
             <a class="cabecalho__menu__link" href="dg.html">Dungeons</a>
-            <a class="cabecalho__menu__link" href="https://portfolio-2024-ictxdiogos-projects.vercel.app/project/pokebro-map" target="_blank">Mapa do Jogo</a>
+            <a class="cabecalho__menu__link"
+                href="https://portfolio-2024-ictxdiogos-projects.vercel.app/project/pokebro-map" target="_blank">Mapa
+                do Jogo</a>
         </nav>
     </header>
 
-        <!-- Abas para Bosses -->
-        <section class="boss-tabs">
-            <button class="btn active" onclick="openBoss('drapion')">Drapion</button>
-            <button class="btn" onclick="openBoss('outroBoss')">Construção</button>
-            <button class="btn active" onclick="openBoss('outroBoss')">Construção</button>
-            <button class="btn" onclick="openBoss('outroBoss')">Construção</button>
-            <!-- Adicione mais botões para cada boss -->
-        </section>
-        
+    <!-- Abas para Bosses -->
+
+    <!--<section class="boss-tabs" style="text-align:center; margin: 2rem 0;">
+        <button class="tab-button active" onclick="openBoss('drapion')">Drapion</button>
+        <button class="tab-button" onclick="openBoss('outroBoss')">Construção</button>
+        <button class="tab-button" onclick="openBoss('outroBoss2')">Construção</button>
+        <button class="tab-button" onclick="openBoss('outroBoss3')">Construção</button>
+    </section> -->
+
     <main class="apresentacao">
-        <section id="drapion" class="sessao1">
-            <div> <img src="assets/bossdrapion.png" alt="Imagem 1" ></div>
-            <div>
+        <!-- Drapion -->
+        <section id="drapion" class="tab-content active boss-section">
+            <div class="boss-container">
+                <img src="assets/bossdrapion.png" alt="Boss Drapion" class="boss-img">
+
                 <h1 class="apresentacao__conteudo__titulo">Boss Drapion</h1>
-            </div>
-            <p class="apresentacao__conteudo__texto">
-                Requisitos:<br><br>
-                - Rank 3;<br>
-                - Amuleto do escorpião.
-            </p>
-            <p class="apresentacao__conteudo__texto">
-                <br>
-                1°) Em Fuchsia vá para direita, até localizar uma entrada de caverna. Fica atrás
-                do respaw dos Tauros.
-            </p>
-            <div class="cardboss">
-                <div class="cardboses">
-                    <img src="assets/mapadrapion1.png" alt="Imagem 1" class="slider-image">
-                </div>
+
+                <p class="apresentacao__conteudo__texto">
+                    Requisitos:<br><br>
+                    - Rank 3;<br>
+                    - Amuleto do escorpião.
+                </p>
             </div>
 
             <p class="apresentacao__conteudo__texto">
-                <br>
-                2°) Siga o mapa:
+                1°) Em Fuchsia vá para direita, até localizar uma entrada de caverna (atrás do respaw dos Tauros).
             </p>
-            <div class="cardboss">
-                <div class="cardboses">
-                    <img src="assets/mapadrapion2.png" alt="Imagem 1" class="slider-image">
-                </div>
-            </div>
-            <div class="cardboss">
-                <div class="cardboses">
-                    <img src="assets/mapadrapion3.png" alt="Imagem 1" class="slider-image">
-                </div>
-            </div>
-            <p class="apresentacao__conteudo__texto">
-                <br>
-                Passe pela porta!
-            </p>
-            <div class="cardboss">
-                
-                <div class="cardboses">
-                    <img src="assets/mapadrapion4.png" alt="Imagem 1" class="slider-image">
-                </div>
-            </div>
+
+            <div class="cardboss"><div class="cardboses">
+                <img src="assets/mapadrapion1.png" alt="Mapa entrada Drapion">
+            </div></div>
+
+            <p class="apresentacao__conteudo__texto">2°) Siga o mapa:</p>
+            <div class="cardboss"><div class="cardboses">
+                <img src="assets/mapadrapion2.png" alt="Mapa Drapion 2">
+            </div></div>
+            <div class="cardboss"><div class="cardboses">
+                <img src="assets/mapadrapion3.png" alt="Mapa Drapion 3">
+            </div></div>
+
+            <p class="apresentacao__conteudo__texto">Passe pela porta!</p>
+            <div class="cardboss"><div class="cardboses">
+                <img src="assets/mapadrapion4.png" alt="Mapa Drapion 4">
+            </div></div>
 
             <p class="apresentacao__conteudo__texto">
-                <br>
                 Necessário localizar os Skorupi e tentar dropar o amuleto.<br>
+                Os Skorupi são "mini bosses" e tem respaw aleatório.
             </p>
-            <p class="apresentacao__conteudo__texto">
-                Os Skorupi são "mini boses" e tem respaw aleatório.
-            </p>
-            <div class="cardboss">
-                <div class="cardboses">
-                    <img src="assets/Skorupi.png" alt="Imagem 1" class="slider-image">
-                </div>
-            </div>
+            <div class="cardboss"><div class="cardboses">
+                <img src="assets/Skorupi.png" alt="Skorupi">
+            </div></div>
 
             <p class="apresentacao__conteudo__texto">
-                <br>
                 Localize a estátua de escorpião e para acessar o Boss Drapion,
-                basta clicar na estátua estando com o amuleto na Bag.<br>
+                basta clicar na estátua estando com o amuleto na Bag.
             </p>
-            <p class="apresentacao__conteudo__texto">
-                <br>
-                <strong>ALERTA:</strong> O recomendável ir com pelo menos 3 pessoas.<br>
-            </p>
-            <div class="cardboss">
-                <div class="cardboses">
-                    <img src="assets/mapadrapion5.png" alt="Imagem 1" class="slider-image">
-                </div>
-            </div>
-            
+
+            <p class="apresentacao__conteudo__texto"><strong>ALERTA:</strong> O recomendável é ir com pelo menos 3 pessoas.</p>
+            <div class="cardboss"><div class="cardboses">
+                <img src="assets/mapadrapion5.png" alt="Mapa Boss Drapion">
+            </div></div>
+        </section>
+
+        <!-- Placeholder outros Bosses -->
+        <section id="outroBoss" class="tab-content boss-section" style="display:none;">
+            <h1 class="apresentacao__conteudo__titulo">Em Construção</h1>
+            <p class="apresentacao__conteudo__texto">Conteúdo em breve.</p>
+        </section>
+
+        <section id="outroBoss2" class="tab-content boss-section" style="display:none;">
+            <h1 class="apresentacao__conteudo__titulo">Em Construção</h1>
+            <p class="apresentacao__conteudo__texto">Conteúdo em breve.</p>
+        </section>
+
+        <section id="outroBoss3" class="tab-content boss-section" style="display:none;">
+            <h1 class="apresentacao__conteudo__titulo">Em Construção</h1>
+            <p class="apresentacao__conteudo__texto">Conteúdo em breve.</p>
         </section>
     </main>
-
-
-    <section>
-
-    </section>
 
     <!-- Rodapé -->
     <footer class="rodape">
@@ -128,6 +120,7 @@
     <!-- Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Ativar link do menu
             const links = document.querySelectorAll('.cabecalho__menu__link');
             links.forEach(link => {
                 if (link.href === window.location.href.split('#')[0]) {
@@ -141,22 +134,27 @@
             const tabButtons = document.querySelectorAll('.tab-button');
 
             tabContents.forEach(content => {
+                content.style.display = "none";
                 content.classList.remove('active');
-                if (content.id === bossId) {
-                    content.classList.add('active');
-                }
             });
 
             tabButtons.forEach(button => {
                 button.classList.remove('active');
             });
 
-            document.querySelector(`[onclick="openBoss('${bossId}')"]`).classList.add('active');
+            document.getElementById(bossId).style.display = "block";
+            document.getElementById(bossId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            
         }
+        // Toggle menu mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.cabecalho__menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
     </script>
 
-    
-
 </body>
-
 </html>

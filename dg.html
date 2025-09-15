@@ -17,6 +17,7 @@
 
     <!-- Cabeçalho -->
     <header class="cabecalho">
+        <button class="menu-toggle" aria-label="Abrir menu">☰</button>
         <div class="cabecalho__container"></div>
         <nav class="cabecalho__menu">
             <a class="cabecalho__menu__link" href="index.html">Home</a>
@@ -24,7 +25,9 @@
             <a class="cabecalho__menu__link" href="questbox.html">Quest's Box</a>
             <a class="cabecalho__menu__link" href="boses.html">Boss's</a>
             <a class="cabecalho__menu__link" href="dg.html">Dungeons</a>
-            <a class="cabecalho__menu__link" href="https://portfolio-2024-ictxdiogos-projects.vercel.app/project/pokebro-map" target="_blank">Mapa do Jogo</a>
+            <a class="cabecalho__menu__link"
+                href="https://portfolio-2024-ictxdiogos-projects.vercel.app/project/pokebro-map" target="_blank">Mapa
+                do Jogo</a>
         </nav>
     </header>
     
@@ -68,6 +71,13 @@
         setInterval(() => {
             showSlide(currentSlide + 1); // Avança para a próxima imagem
         }, 3000); // Troca a imagem a cada 3 segundos
+                // Toggle menu mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.cabecalho__menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
     </script>
 
 </body>
